@@ -13,11 +13,7 @@ import org.slf4j.Logger;
 
 import java.nio.file.Path;
 
-@Plugin(
-        id = "velocityping",
-        name = "Velocityping",
-        version = "1.0-SNAPSHOT"
-)
+@Plugin(id = "velocityping", name = "Velocityping", version = "1.0-SNAPSHOT")
 public class Velocityping {
 
     private final ProxyServer server;
@@ -29,7 +25,7 @@ public class Velocityping {
     public Velocityping(ProxyServer server, Logger logger) {
         this.server = server;
         this.logger = logger;
-        logger.info("Plugin has enabled!");
+        logger.info("Plugin pinger abilitato!");
     }
 
     @Subscribe

@@ -22,13 +22,13 @@ public class PingCommand implements SimpleCommand{
         CommandSource source = invocation.source();
         if (invocation.arguments().length == 0) {
             if (!(source instanceof Player)) {
-                source.sendMessage(Component.text("cant check your ping when you running the command from console."));
+                source.sendMessage(Component.text("Non posso controllare il tuo ping quando esegui il comando dalla console."));
                 return;
             }
             Player player = (Player) source;
             String playername = player.getGameProfile().getName();
             long playerping = player.getPing();
-            player.sendMessage(Component.text(playername + "'s ping: ").color(NamedTextColor.GREEN)
+            player.sendMessage(Component.text("Ping di " + playername + ": ").color(NamedTextColor.GREEN)
                     .append(Component.text(playerping + "ms").color(NamedTextColor.AQUA)));
         } else if (invocation.arguments().length > 0) {
             if (source.hasPermission("ping.use.others")) {
@@ -40,9 +40,9 @@ public class PingCommand implements SimpleCommand{
                     source.sendMessage(Component.text(player.getGameProfile().getName() + "'s ping: ").color(NamedTextColor.GREEN)
                             .append(Component.text(playerping + "ms").color(NamedTextColor.AQUA)));
                 } else {
-                    source.sendMessage(Component.text("This player could not be found!").color(NamedTextColor.RED));
+                    source.sendMessage(Component.text("Player non trovato!").color(NamedTextColor.RED));
                 }
-            } else source.sendMessage(Component.text("You don't have permission to do that!").color(NamedTextColor.RED));
+            } else source.sendMessage(Component.text("Permessi insufficienti").color(NamedTextColor.RED));
         }
     }
 
